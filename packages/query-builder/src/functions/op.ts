@@ -6,7 +6,7 @@ function op(
   op: Operations,
   value: any
 ) {
-  return { target, op, value }
+  return { target, op, value, type: "op" }
 }
 
 op.type = "op"

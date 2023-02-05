@@ -20,6 +20,8 @@ function where(
       params,
     }
   } else {
+    if (params.length < 0)
+      throw new Error("WHERE function needs at least one operands.")
     const first = params[0]
     const f_key = "@v" + Object.keys(this.values).length
     this.values[f_key] = first.value
@@ -44,4 +46,4 @@ where.type = "where"
 where(op("a", "!=", ""), "AND", op("a", "&", "d"))
 type WhereFunction = typeof where
 export { where }
-export type { WhereFunction }
+export type { WhereFunction, WhereDefinition }

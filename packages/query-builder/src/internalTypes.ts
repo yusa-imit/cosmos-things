@@ -1,3 +1,13 @@
+import { FromDefinition } from "./functions/from"
+import { OpFunctionReturn } from "./functions/op"
+import { SelectDefinition } from "./functions/select"
+import { WhereDefinition } from "./functions/where"
+
+export type BuildInit = {
+  select: SelectDefinition[]
+  from: FromDefinition[]
+  conditions: (OpFunctionReturn | WhereDefinition)[]
+}
 export type PossibleQueries = "12" | "23"
 export type Operations =
   | ">"
