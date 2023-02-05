@@ -14,7 +14,11 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "lib": ["ES2019"],
+    "module": "ESNext",
+    "target": "es6"
+
   },
   "exclude": ["node_modules"]
 }
