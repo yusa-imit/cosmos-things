@@ -1,3 +1,6 @@
+import { functions } from "../functions"
+import { BuildInit, QueryBuildingFunction } from "../internalTypes"
+
 export class QueryBuilder {
   pointer: number = 0
   namespace: Record<string, string> = {}
@@ -5,9 +8,16 @@ export class QueryBuilder {
     select: string
     from: string
     conditions: string[]
+  } = {
+    select: "",
+    from: "",
+    conditions: [],
   }
   values: Record<string, any> = {}
-  constructor(...args) {}
+  constructor(arg: BuildInit) {
+    this.appendQuery(arg)
+  }
+  appendQuery(arg: BuildInit) {}
   buildQuery() {
     return
   }

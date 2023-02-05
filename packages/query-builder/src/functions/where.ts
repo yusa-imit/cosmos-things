@@ -22,6 +22,8 @@ function where(
   } else {
     if (params.length < 0)
       throw new Error("WHERE function needs at least one operands.")
+    if (params.length % 2 === 0)
+      throw new Error("WHERE function cannot accept parameters of even number.")
     const first = params[0]
     const f_key = "@v" + Object.keys(this.values).length
     this.values[f_key] = first.value

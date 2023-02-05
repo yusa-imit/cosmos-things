@@ -3,6 +3,24 @@ import { OpFunctionReturn } from "./functions/op"
 import { SelectDefinition } from "./functions/select"
 import { WhereDefinition } from "./functions/where"
 
+export type QueryKeywords =
+  | "query"
+  | "op"
+  | "select"
+  | "value"
+  | "where"
+  | "from"
+
+export interface QueryFunction extends Function {
+  type: QueryKeywords
+}
+
+export type QueryBuildingFunction =
+  | FromDefinition
+  | OpFunctionReturn
+  | SelectDefinition
+  | WhereDefinition
+
 export type BuildInit = {
   select: SelectDefinition[]
   from: FromDefinition[]
