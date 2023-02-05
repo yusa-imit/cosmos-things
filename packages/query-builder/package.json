@@ -1,0 +1,22 @@
+{
+  "name": "query-builder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yusa-imit",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "@azure/cosmos": "^3.0.0"
+  },
+  "devDependencies": {
+    "@azure/cosmos": "^3.17.2",
+    "@types/jest": "^29.4.0",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "jest": "^29.4.1",
+    "tsconfig": "*",
+    "typescript": "^4.5.2"
+  }
+}
