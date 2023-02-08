@@ -1,6 +1,7 @@
 import { from } from "./from"
 import { op } from "./op"
 import { select } from "./select"
+import { value } from "./value"
 import { where } from "./where"
 
 export const functions = {
@@ -8,4 +9,5 @@ export const functions = {
   op: op,
   select: select,
   where: where,
+  value: value,
 }

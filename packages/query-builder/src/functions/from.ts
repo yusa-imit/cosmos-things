@@ -1,7 +1,7 @@
 import { QueryFunction } from "../internalTypes"
 import { QueryBuilder } from "../utils/QueryBuilder"
 
-type FromParameters = [string, string | undefined]
+type FromParameters = [name: string, as?: string | undefined]
 type FromDefinition = {
   type: "from"
   params: FromParameters

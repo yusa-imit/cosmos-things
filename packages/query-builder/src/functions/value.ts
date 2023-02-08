@@ -1,11 +1,18 @@
-function value(param: Record<string, string>) {
+type ValueParameters = [Record<string, string>]
+type ValueDefinition = {
+  type: "value"
+  params: ValueParameters
+}
+interface ValueFunction {
+  (...params: ValueParameters): ValueDefinition
+}
+
+const value: ValueFunction = function (param) {
   return {
     type: "value",
-    params: param,
+    params: [param],
   }
 }
-type ValueFunction = typeof value
-type ValueDefinition = ReturnType<ValueFunction>
 
 export { value }
 export type { ValueFunction, ValueDefinition }

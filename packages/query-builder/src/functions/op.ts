@@ -1,16 +1,17 @@
 import { QueryBuilder } from "../utils/QueryBuilder"
 import { Operations } from "../internalTypes"
-function op(
-  this: void | QueryBuilder,
-  target: string,
-  op: Operations,
-  value: any
-) {
-  return { target, op, value, type: "op" }
+type OpParameters = [target: string, op: Operations, value: any]
+type OpDefinition = {
+  type: "op"
+  params: OpParameters
+}
+interface OpFunction {
+  (...params: OpParameters): OpDefinition
 }
 
-op.type = "op"
-type OpFunction = typeof op
-type OpFunctionReturn = ReturnType<OpFunction>
+const op: OpFunction = function (target, op, value) {
+  return { type: "op", params: [target, op, value] }
+}
+
 export { op }
-export type { OpFunction, OpFunctionReturn }
+export type { OpFunction, OpDefinition }

@@ -1,5 +1,5 @@
 import { FromDefinition } from "./functions/from"
-import { OpFunctionReturn } from "./functions/op"
+import { OpDefinition } from "./functions/op"
 import { SelectDefinition } from "./functions/select"
 import { WhereDefinition } from "./functions/where"
 
@@ -15,16 +15,16 @@ export interface QueryFunction extends Function {
   type: QueryKeywords
 }
 
-export type QueryBuildingFunction =
+export type QueryDefinitions =
   | FromDefinition
-  | OpFunctionReturn
+  | OpDefinition
   | SelectDefinition
   | WhereDefinition
 
 export type BuildInit = {
   select: SelectDefinition[]
   from: FromDefinition[]
-  conditions: (OpFunctionReturn | WhereDefinition)[]
+  conditions: (QueryDefinitions | WhereDefinition)[]
 }
 export type PossibleQueries = "12" | "23"
 export type Operations =

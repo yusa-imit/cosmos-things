@@ -1,5 +1,5 @@
 import { functions } from "../functions"
-import { BuildInit, QueryBuildingFunction } from "../internalTypes"
+import { BuildInit } from "../internalTypes"
 
 export class QueryBuilder {
   pointer: number = 0
