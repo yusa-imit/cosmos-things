@@ -2,6 +2,7 @@ import { functions } from "../functions"
 import { BuildInit } from "../internalTypes"
 
 export class QueryBuilder {
+  prefix: string
   pointer: number = 0
   namespace: Record<string, string> = {}
   query: {
@@ -14,7 +15,8 @@ export class QueryBuilder {
     conditions: [],
   }
   values: Record<string, any> = {}
-  constructor(arg: BuildInit) {
+  constructor(prefix: string, arg: BuildInit) {
+    this.prefix = prefix
     this.appendQuery(arg)
   }
   appendQuery(arg: BuildInit) {}

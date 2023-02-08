@@ -7,7 +7,7 @@ type SelectDefinition = {
   params: SelectParameters
 }
 interface SelectFunction {
-  (def: ValueDefinition | string, as?: string): SelectDefinition
+  (def?: ValueDefinition | string, as?: string): SelectDefinition
 }
 
 const select: SelectFunction = function (def, as?) {
@@ -24,4 +24,4 @@ interface ISelectFunction {
 const _select: ISelectFunction = function (this, def, as) {}
 
 export { select, _select }
-export type { SelectFunction, SelectDefinition }
+export type { SelectFunction, SelectDefinition, ISelectFunction }

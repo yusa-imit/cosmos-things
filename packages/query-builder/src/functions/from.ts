@@ -25,10 +25,9 @@ const _from: IFromFunction = function (this, name, as) {
   if (as) {
     this.namespace[name] = as
   } else {
-    this.namespace[name] = "ns" + this.pointer
-    this.pointer++
+    this.namespace[name] = this.prefix + "_ns_" + this.pointer++
   }
   this.query.from = `FROM ${name} AS ${this.namespace[name]}`
 }
 export { from, _from }
-export type { FromFunction, FromDefinition }
+export type { FromFunction, FromDefinition, IFromFunction }

@@ -52,4 +52,4 @@ const _where: IWhereFunction = function (this, ...params) {
 
 where(op("a", "!=", ""), "AND", op("a", "&", "d"))
 export { where, _where }
-export type { WhereFunction, WhereDefinition }
+export type { WhereFunction, WhereDefinition, IWhereFunction }

@@ -1,18 +1,16 @@
 import { BuildInit, QueryDefinitions } from "./internalTypes"
 import { QueryBuilder } from "./utils/QueryBuilder"
 import { sort } from "./utils/sort"
+import { getPrefix } from "./utils/getPrefix"
 
-export function query(
-  this: void | QueryBuilder,
-  ...params: QueryDefinitions[]
-) {
+export function query(...params: QueryDefinitions[]) {
   if (params.length < 2) {
     throw new Error("Query needs at least two functions with SELECT and FROM")
   }
-  var prefix
-  var builder
+  var pfx = getPrefix()
+  var builder = new QueryBuilder(pfx, sort(...params))
+}
 
-  if (!(this instanceof QueryBuilder)) {
-    builder = new QueryBuilder(sort(...params))
-  }
+export function dev_query(prefix: string, ...params: QueryDefinitions[]) {
+  var builder = new QueryBuilder(prefix, sort(...params))
 }
